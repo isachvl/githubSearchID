@@ -7,6 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#4D92E0</color>
+    <color name="JavaScriptYellow">#AA9F4B</color>
+    <color name="KotlinCSharpCPurple">#574481</color>
+    <color name="Python">#6DD16F</color>
+
+
 
     <color name="LogoCat">#A188C7</color>
 </resources>

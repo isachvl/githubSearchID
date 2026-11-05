@@ -10,7 +10,7 @@ val backgroundWhite = Color(0xFFF2EEE8)
 val white = Color(0xFFFFFFFF)
 val textcolor = Color(0xFFFFFFFF)
 val onBackgroundtext = Color(0xFF85878A)
-
+val ErrorRed = Color(0xFFAF0020)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF636072)
 val Pink40 = Color(0xFF7D5260)

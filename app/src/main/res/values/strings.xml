@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">GitHubSEE</string>
     <string name="logo">LogoGIT</string>
+    <string name="tokenPersonal">Personal access token</string>
+    <string name="tokenIvalid">Invalid token</string>
+    <string name="singIn">SING IN</string>
+    <string name="repositories">Repositories</string>
+    <string name="Connection_error">Connection error</string>
+    <string name="Connection_error_info">Check your Internet connection</string>
+    <string name="Empty">Empty</string>
+    <string name="Empty_info">No repositories at the moment</string>
+    <string name="Something_error">Something error</string>
+    <string name="Something_error_info">Check your something</string>
+    <string name="RETRY">RETRY</string>
+    <string name="REFRESH">REFRESH</string>
+    <string name="Enter_token">Enter token</string>
+    <string name="Invalid_token">Invalid token</string>
+    <string name="network_error">Connection error. Please try again.</string>
+
+
+
+
 </resources>
