@@ -94,8 +94,9 @@ fun DetailInfoScreen(
                 },
 
                 actions = {
-                    IconButton(onClick = { onLogout()
-                        viewModel.logout()}) {
+                    IconButton(onClick = { viewModel.logout()
+                        onLogout()
+                        }) {
                         Icon(
                             painter = painterResource(R.drawable.vector),
                             contentDescription = stringResource(R.string.sign_out)

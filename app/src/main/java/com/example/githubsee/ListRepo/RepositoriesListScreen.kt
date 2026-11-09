@@ -53,6 +53,7 @@ fun RepositoriesListScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val errorState = state as? RepositoriesListViewModel.State.Error
+
     val isEmpty = state == RepositoriesListViewModel.State.Empty
 
     val showStatus = isEmpty || errorState != null
@@ -245,7 +246,7 @@ fun RepositoriesListScreen(
                     )
                 }
 
-                if (errorState != null) {
+                if (errorState != null || isEmpty ) {
                     Button(
                         onClick = { viewModel.loadRepositories() },
                         modifier = Modifier
