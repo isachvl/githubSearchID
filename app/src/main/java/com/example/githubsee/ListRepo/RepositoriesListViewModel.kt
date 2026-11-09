@@ -53,11 +53,13 @@ class RepositoriesListViewModel(
                 throw e
 
             } catch (e: ClientRequestException) {
-                _state.value =
+
                     if (e.response.status == HttpStatusCode.Unauthorized) {
-                        State.Error(R.string.repo_invalid_token)
+                        _state.value = State.Error(R.string.repo_invalid_token)
+                        logout()
+
                     } else {
-                        State.Error(R.string.repo_loading_error)
+                        _state.value = State.Error(R.string.repo_loading_error)
                     }
 
             } catch (e: IllegalStateException) {
