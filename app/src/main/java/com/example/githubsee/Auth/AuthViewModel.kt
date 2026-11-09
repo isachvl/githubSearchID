@@ -1,10 +1,12 @@
-package com.example.githubsee
+package com.example.githubsee.Auth
 
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
+import android.text.BoringLayout
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.annotation.StringRes
+import com.example.githubsee.AppRepository
+import com.example.githubsee.KeyValueStorage
+import com.example.githubsee.R
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.flow.Flow
@@ -17,11 +19,14 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.cancellation.CancellationException
 
 class AuthViewModel(
-    private val repository: AppRepository
+    private val repository: AppRepository,
+    private val storage: KeyValueStorage
 ) : ViewModel() {
 
 
     val token = MutableStateFlow("")
+
+
 
     fun onTokenChanged(value: String) {
         token.value = value
@@ -36,6 +41,22 @@ class AuthViewModel(
     private val _actions = MutableSharedFlow<Action>()
     val actions: Flow<Action> = _actions.asSharedFlow()
 
+    val Authflag: Boolean
+
+    init {
+        val savedToken = storage.authToken
+
+        Authflag = savedToken.isNullOrBlank()
+
+        if (Authflag) {
+            token.value = ""
+        } else {
+            _state.value = State.Authorized
+        }
+    }
+
+
+
     fun onSignButtonPressed() {
         val enteredToken = token.value.trim()
         if (enteredToken.isBlank()) {
@@ -49,6 +70,9 @@ class AuthViewModel(
 
                 _state.value = State.Idle
                 _actions.emit(Action.RouteToMain)
+
+                storage.authToken = enteredToken
+
 
             } catch (e: CancellationException) {
                 throw e
@@ -67,6 +91,7 @@ class AuthViewModel(
     sealed interface State {
         object Idle : State
         object Loading : State
+        object Authorized : State
         data class InvalidInput(
             @StringRes val reason: Int
         ) : State
@@ -76,6 +101,7 @@ class AuthViewModel(
         data class ShowError(
             @StringRes val reason: Int
         ) : Action
+
         object RouteToMain : Action
     }
 }

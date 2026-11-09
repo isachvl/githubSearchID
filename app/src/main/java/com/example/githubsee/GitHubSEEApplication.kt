@@ -1,9 +1,10 @@
 package com.example.githubsee
 
 import android.app.Application
-import com.example.githubsee.di.appModule
+import com.example.githubsee.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+
 
 class GitHubSEEApplication : Application() {
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHub Search Api</string>
+    <string name="logo">Логотип GitHub</string>
+    <string name="tokenPersonal">Персональный токен доступа</string>
+    <string name="tokenIvalid">Недействительный токен</string>
+    <string name="singIn">ВОЙТИ</string>
+    <string name="repositories">Репозитории</string>
+    <string name="Connection_error">Ошибка подключения</string>
+    <string name="Connection_error_info">Проверьте подключение к интернету</string>
+    <string name="Empty">Пусто</string>
+    <string name="Empty_info">На данный момент репозиториев нет</string>
+    <string name="Something_error">Произошла ошибка</string>
+    <string name="Something_error_info">Что-то пошло не так</string>
+    <string name="RETRY">ПОВТОРИТЬ</string>
+    <string name="REFRESH">ОБНОВИТЬ</string>
+    <string name="Enter_token">Введите токен</string>
+    <string name="Invalid_token">Недействительный токен</string>
+    <string name="network_error">Ошибка подключения. Попробуйте ещё раз.</string>
+    <string name="repo_invalid_token">Недействительный или просроченный токен</string>
+    <string name="repo_network_error">Нет подключения к интернету</string>
+    <string name="repo_loading_error">Не удалось загрузить репозитории</string>
+    <string name="repo_error_title">Ошибка</string>
+    <string name="sign_out">Выйти из аккаунта</string>
+
+    <string name="detail_back">Назад</string>
+    <string name="detail_license">Лицензия</string>
+    <string name="detail_no_license">Нет лицензии</string>
+    <string name="detail_stars">%1$d звёзд</string>
+    <string name="detail_forks">%1$d форков</string>
+    <string name="detail_watchers">%1$d наблюдателей</string>
+    <string name="detail_readme">README.md</string>
+    <string name="detail_no_readme_title">Нет README.md</string>
+    <string name="detail_no_readme_info">В этом репозитории отсутствует файл README.md.</string>
+</resources>

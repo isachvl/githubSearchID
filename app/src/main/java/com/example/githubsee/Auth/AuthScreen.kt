@@ -1,13 +1,11 @@
-package com.example.githubsee
+package com.example.githubsee.Auth
 
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import org.koin.compose.viewmodel.koinViewModel
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -30,35 +28,35 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.githubsee.ui.theme.ErrorRed
 import com.example.githubsee.ui.theme.GreenButton
-import com.example.githubsee.ui.theme.Purple80
-import com.example.githubsee.ui.theme.textcolor
 import com.example.githubsee.ui.theme.white
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.airbnb.lottie.LottieDrawable
+import com.example.githubsee.R
 
 
 @Composable
-fun AuthScreenn( viewModel: AuthViewModel = koinViewModel(),Onclick:() -> Unit) {
+fun AuthScreenn(viewModel: AuthViewModel = koinViewModel(), Onclick:() -> Unit) {
+
 
 
     val token by viewModel.token.collectAsStateWithLifecycle()
     val state by viewModel.state.collectAsStateWithLifecycle()
     val clickTextField: MutableState<Boolean> = remember { mutableStateOf(true) }
     var sizeText = 0.sp
-
+    LaunchedEffect(state) {
+        if (state == AuthViewModel.State.Authorized) {
+            Onclick()
+        }
+    }
     LaunchedEffect(viewModel) {
         viewModel.actions.collect { action ->
 

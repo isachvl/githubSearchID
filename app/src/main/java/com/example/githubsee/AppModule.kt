@@ -1,13 +1,15 @@
-package com.example.githubsee.di
+package com.example.githubsee
 
-import com.example.githubsee.AppRepository
-import com.example.githubsee.AuthViewModel
+import com.example.githubsee.Auth.AuthViewModel
+import com.example.githubsee.InfoRepo.RepositoryInfoViewModel
+import com.example.githubsee.ListRepo.RepositoriesListViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -24,7 +26,10 @@ val appModule = module {
         }
     }
 
-    single { AppRepository(get()) }
+    viewModel { RepositoriesListViewModel(get(), get()) }
+    viewModel { AuthViewModel(get(),get()) }
+    viewModel { RepositoryInfoViewModel(get(),get()) }
+    single{ KeyValueStorage(androidContext()) }
 
-    viewModel { AuthViewModel(get()) }
+    single { AppRepository(get(),get()) }
 }

@@ -1,4 +1,4 @@
-package com.example.githubsee
+package com.example.githubsee.ListRepo
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
