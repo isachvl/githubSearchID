@@ -67,11 +67,11 @@ class AuthViewModel(
         viewModelScope.launch {
             try {
                 repository.signIn(enteredToken)
-
+                storage.authToken = enteredToken
                 _state.value = State.Idle
                 _actions.emit(Action.RouteToMain)
 
-                storage.authToken = enteredToken
+
 
 
             } catch (e: CancellationException) {

@@ -62,6 +62,7 @@ class RepositoriesListViewModel(
 
             } catch (e: IllegalStateException) {
                 _state.value = State.Error(R.string.repo_invalid_token)
+                logout()
 
             } catch (e: IOException) {
                 _state.value = State.Error(R.string.repo_network_error)

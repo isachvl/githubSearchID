@@ -259,7 +259,12 @@ fun RepositoriesListScreen(
                             contentColor = white
                         )
                     ) {
-                        Text(text = stringResource(R.string.RETRY))
+                        Text(
+                            text = stringResource(
+                                if (isEmpty) R.string.REFRESH
+                                else R.string.RETRY
+                            )
+                        )
                     }
                 }
             }

@@ -60,7 +60,7 @@ class AppRepository(private val client: HttpClient,private val storage: KeyValue
 
         val response = client.get("https://api.github.com/user/repos") {
             bearerAuth(token)
-            parameter("per_page", 20)
+            parameter("per_page", 10)
         }
 
         return response.body<List<Repo>>()
